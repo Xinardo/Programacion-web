@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="description" content="Página de inicio de sesión para el sistema de gestión de inventarios.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mi primera pagina</title>
+    <style>
+        /* Reseteo básico de márgenes y uso de Flexbox para dividir la pantalla */
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            height: 100vh; 
+            background-color: #f4f7f6;
+        }
+
+        /* Lado izquierdo: Imagen grande */
+        .seccion-imagen { 
+            flex: 1; /* Toma la mitad de la pantalla */
+            background-color: #e0e0e0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden; 
+        }
+        
+        .seccion-imagen img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* Asegura que la imagen no se deforme */
+        }
+
+        /* Lado derecho: Formulario de Login */
+        .seccion-login { 
+            flex: 1; /* Toma la otra mitad */
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background-color: #ffffff; 
+        }
+
+        /* Caja contenedora del formulario */
+        .caja-login { 
+            width: 80%; 
+            max-width: 380px; 
+            padding: 2.5rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            border-radius: 10px; 
+            text-align: center; 
+        }
+
+        /* Imagen pequeña para el logo */
+        .img-logo { 
+            width: 120px; 
+            height: auto; 
+            margin-bottom: 1.5rem; 
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Estilos de los inputs */
+        .grupo-form { 
+            margin-bottom: 1.2rem; 
+            text-align: left; 
+        }
+
+        .grupo-form label { 
+            display: block; 
+            margin-bottom: 0.5rem; 
+            color: #666; 
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .grupo-form input { 
+            width: 100%; 
+            padding: 0.8rem; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            box-sizing: border-box; 
+            font-size: 1rem;
+        }
+
+        .grupo-form input:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+
+        /* Estilo del botón */
+        .btn-ingresar { 
+            width: 100%; 
+            padding: 0.8rem; 
+            background-color: #0056b3; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-ingresar:hover { 
+            background-color: #004494; 
+        }
+
+        /* Hacerlo responsivo para celulares */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .seccion-imagen { display: none; } /* Oculta la imagen grande en celulares */
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li> <a href="primerapagina.html">Inicio</a></li>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="acercade.html">Acerca de</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</nav>
+    <div class="seccion-imagen">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Imagen corporativa">
+    </div>
+
+    <div class="seccion-login">
+        <div class="caja-login">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135679.png" alt="Logo del sistema" class="img-logo">
+            
+            <h2>Acceso al Sistema</h2>
+            
+            <form action="#" method="POST">
+                <div class="grupo-form">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" required>
+                </div>
+                
+                <div class="grupo-form">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn-ingresar">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
