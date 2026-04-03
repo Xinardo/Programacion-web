@@ -20,7 +20,6 @@
             color: white;
             text-align: center;
             padding: 1.5rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra ligera para darle profundidad */
         }
 
         .titulo-principal {
@@ -28,6 +27,36 @@
             font-size: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        /* Estilos para la barra de navegación que agregaste */
+        nav {
+            background-color: #343a40; /* Gris oscuro para contrastar */
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none; /* Quita los puntos de la lista */
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline; /* Pone los enlaces uno al lado del otro */
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none; /* Quita el subrayado */
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            color: #90c2f7; /* Cambia de color al pasar el mouse */
         }
 
         /* Contenedor principal para centrar el contenido */
@@ -44,11 +73,12 @@
             background-color: #e9ecef;
             padding: 20px;
             border-radius: 8px;
-            border: 2px dashed #adb5bd; /* Borde punteado para que notes dónde va */
+            border: 2px dashed #adb5bd; 
         }
 
+        /* AQUÍ ESTÁ EL TAMAÑO DE LA IMAGEN AJUSTADO */
         .contenedor-imagen img {
-            max-width: 100%;
+            max-width: 300px; /* Reduje el tamaño máximo para que se vea más pequeña */
             height: auto;
             border-radius: 4px;
         }
@@ -78,31 +108,33 @@
         <h1 class="titulo-principal">sitio ulagos</h1>
     </header>
 
+    <nav>
+        <ul>
+            <li><a href="Ulagos.html">Ulagos</a></li>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="acercade.html">Acerca de</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
     <main>
         <section>
             <h2>Bienvenido al Portal</h2>
             <p>Titulo prueba</p>
             
             <div class="contenedor-imagen">
-                <img src="/img/ulagos.png" 
+                <img src="/img/ulagos.png" alt="Logo de Ulagos">
             </div>
         </section>
 
         <section>
             <h2>Información Académica</h2>
-            <p>Con la etiqueta h2 logras separar secciones importantes. Al ponerle el borde azul por debajo en el CSS, le das un toque muy profesional con muy poco esfuerzo.</p>
+            <p> Almuerzo</p>
 
-            <h3>Detalles del Departamento</h3>
-            <p>Y aquí usamos un h3 para crear una sub-sección. Es súper importante mantener esta jerarquía visual para que el usuario no se pierda al leer.</p>
+            <h3>Detalles de la Carrera</h3>
+            <p>.</p>
         </section>
     </main>
-<nav>
-    <ul>
-        <li><a href="Ulagos.html">Inicio</a></li>
-        <li><a href="inicio.html">Inicio</a></li>
-        <li><a href="acercade.html">Acerca de</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-</nav>
+
 </body>
 </html>
