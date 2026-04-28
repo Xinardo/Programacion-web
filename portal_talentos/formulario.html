@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Talento</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Registra tu Talento</h1>
+    <form action="#" method="post" class="form-container">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" min="1" required>
+
+        <label for="talento">Tipo de Talento:</label>
+        <select id="talento" name="talento" required>
+            <option value="">Selecciona</option>
+            <option value="musica">Música</option>
+            <option value="tecnologia">Tecnología</option>
+            <option value="arte">Arte</option>
+            <option value="deporte">Deporte</option>
+        </select>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono">
+
+        <label for="pais">País:</label>
+        <input type="text" id="pais" name="pais" required>
+
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" required>
+
+        <label for="experiencia">Años de Experiencia:</label>
+        <input type="number" id="experiencia" name="experiencia" min="0" required>
+
+        <label for="nivel">Nivel de Experiencia:</label>
+        <select id="nivel" name="nivel" required>
+            <option value="">Selecciona</option>
+            <option value="principiante">Principiante</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="avanzado">Avanzado</option>
+            <option value="experto">Experto</option>
+        </select>
+
+        <label for="disponibilidad">Disponibilidad:</label>
+        <select id="disponibilidad" name="disponibilidad" required>
+            <option value="">Selecciona</option>
+            <option value="tiempo-completo">Tiempo Completo</option>
+            <option value="medio-tiempo">Medio Tiempo</option>
+            <option value="fines-semana">Fines de Semana</option>
+            <option value="flexible">Flexible</option>
+        </select>
+
+        <label for="portafolio">URL del Portafolio:</label>
+        <input type="url" id="portafolio" name="portafolio">
+
+        <label for="redes">Redes Sociales:</label>
+        <input type="text" id="redes" name="redes" placeholder="ej: @usuario_instagram">
+
+        <label for="foto">Foto de Perfil:</label>
+        <input type="file" id="foto" name="foto" accept="image/*">
+
+        <label for="observaciones">Observaciones Adicionales:</label>
+        <textarea id="observaciones" name="observaciones" rows="3"></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
