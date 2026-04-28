@@ -8,71 +8,47 @@
 </head>
 <body>
     <h1>Registra tu Talento</h1>
+    <p>¡Comparte tu talento especial con nosotros!</p>
     <form action="#" method="post" class="form-container">
-        <label for="nombre">Nombre:</label>
+        <label for="nombre">Tu Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
-        <label for="edad">Edad:</label>
-        <input type="number" id="edad" name="edad" min="1" required>
+        <label for="edad">Tu Edad:</label>
+        <input type="number" id="edad" name="edad" min="1" max="18" required>
 
-        <label for="talento">Tipo de Talento:</label>
+        <label for="talento">¿Cuál es tu Talento?</label>
         <select id="talento" name="talento" required>
-            <option value="">Selecciona</option>
+            <option value="">Selecciona tu talento</option>
             <option value="musica">Música</option>
             <option value="tecnologia">Tecnología</option>
             <option value="arte">Arte</option>
             <option value="deporte">Deporte</option>
+            <option value="danza">Danza</option>
+            <option value="escritura">Escritura</option>
         </select>
 
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+        <label for="descripcion">Cuéntanos sobre tu Talento:</label>
+        <textarea id="descripcion" name="descripcion" rows="4" placeholder="¿Qué haces? ¿Por qué te encanta?" required></textarea>
 
-        <label for="email">Correo Electrónico:</label>
+        <label for="historia">¿Cómo descubriste tu Talento?</label>
+        <textarea id="historia" name="historia" rows="3" placeholder="Cuéntanos tu historia..."></textarea>
+
+        <label for="escuela">Tu Escuela/Instituto:</label>
+        <input type="text" id="escuela" name="escuela" placeholder="Nombre de tu escuela">
+
+        <label for="foto">Tu Foto o Video (opcional):</label>
+        <input type="file" id="foto" name="foto" accept="image/*,video/*">
+
+        <label for="acudiente">Nombre del Apoderado/Padre:</label>
+        <input type="text" id="acudiente" name="acudiente" required>
+
+        <label for="email">Email del Apoderado:</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono">
+        <label for="telefono">Teléfono del Apoderado:</label>
+        <input type="tel" id="telefono" name="telefono" required>
 
-        <label for="pais">País:</label>
-        <input type="text" id="pais" name="pais" required>
-
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad" required>
-
-        <label for="experiencia">Años de Experiencia:</label>
-        <input type="number" id="experiencia" name="experiencia" min="0" required>
-
-        <label for="nivel">Nivel de Experiencia:</label>
-        <select id="nivel" name="nivel" required>
-            <option value="">Selecciona</option>
-            <option value="principiante">Principiante</option>
-            <option value="intermedio">Intermedio</option>
-            <option value="avanzado">Avanzado</option>
-            <option value="experto">Experto</option>
-        </select>
-
-        <label for="disponibilidad">Disponibilidad:</label>
-        <select id="disponibilidad" name="disponibilidad" required>
-            <option value="">Selecciona</option>
-            <option value="tiempo-completo">Tiempo Completo</option>
-            <option value="medio-tiempo">Medio Tiempo</option>
-            <option value="fines-semana">Fines de Semana</option>
-            <option value="flexible">Flexible</option>
-        </select>
-
-        <label for="portafolio">URL del Portafolio:</label>
-        <input type="url" id="portafolio" name="portafolio">
-
-        <label for="redes">Redes Sociales:</label>
-        <input type="text" id="redes" name="redes" placeholder="ej: @usuario_instagram">
-
-        <label for="foto">Foto de Perfil:</label>
-        <input type="file" id="foto" name="foto" accept="image/*">
-
-        <label for="observaciones">Observaciones Adicionales:</label>
-        <textarea id="observaciones" name="observaciones" rows="3"></textarea>
-
-        <button type="submit">Enviar</button>
+        <button type="submit">¡Registrar mi Talento!</button>
     </form>
 </body>
 </html>
