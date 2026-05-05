@@ -10,45 +10,93 @@
     <h1>Registra tu Talento</h1>
     <p>¡Comparte tu talento especial con nosotros!</p>
     <form action="#" method="post" class="form-container">
-        <label for="nombre">Tu Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+        <div class="form-section">
+            <h3>Información Personal</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre">Tu Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Tu Edad:</label>
+                    <input type="number" id="edad" name="edad" min="1" max="18" required>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">Selecciona</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group genero-otro" id="generoOtroGroup" style="display:none;">
+                <label for="generoOtro">Especifica tu género:</label>
+                <input type="text" id="generoOtro" name="generoOtro" placeholder="Escribe tu género">
+            </div>
+        </div>
 
-        <label for="edad">Tu Edad:</label>
-        <input type="number" id="edad" name="edad" min="1" max="18" required>
+        <div class="form-section">
+            <h3>Tu Talento</h3>
+            <div class="form-group">
+                <label for="talento">¿Cuál es tu Talento?</label>
+                <select id="talento" name="talento" required>
+                    <option value="">Selecciona tu talento</option>
+                    <option value="musica">Música</option>
+                    <option value="tecnologia">Tecnología</option>
+                    <option value="arte">Arte</option>
+                    <option value="deporte">Deporte</option>
+                    <option value="danza">Danza</option>
+                    <option value="escritura">Escritura</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Cuéntanos sobre tu Talento:</label>
+                <textarea id="descripcion" name="descripcion" rows="4" placeholder="¿Qué haces? ¿Por qué te encanta?" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="historia">¿Cómo descubriste tu Talento?</label>
+                <textarea id="historia" name="historia" rows="3" placeholder="Cuéntanos tu historia..."></textarea>
+            </div>
+        </div>
 
-        <label for="talento">¿Cuál es tu Talento?</label>
-        <select id="talento" name="talento" required>
-            <option value="">Selecciona tu talento</option>
-            <option value="musica">Música</option>
-            <option value="tecnologia">Tecnología</option>
-            <option value="arte">Arte</option>
-            <option value="deporte">Deporte</option>
-            <option value="danza">Danza</option>
-            <option value="escritura">Escritura</option>
-        </select>
+        <div class="form-section">
+            <h3>Información Académica</h3>
+            <div class="form-group">
+                <label for="escuela">Tu Escuela/Instituto:</label>
+                <input type="text" id="escuela" name="escuela" placeholder="Nombre de tu escuela">
+            </div>
+        </div>
 
-        <label for="descripcion">Cuéntanos sobre tu Talento:</label>
-        <textarea id="descripcion" name="descripcion" rows="4" placeholder="¿Qué haces? ¿Por qué te encanta?" required></textarea>
+        <div class="form-section">
+            <h3>Información del Apoderado</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="acudiente">Nombre del Apoderado/Padre:</label>
+                    <input type="text" id="acudiente" name="acudiente" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email del Apoderado:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono del Apoderado:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+        </div>
 
-        <label for="historia">¿Cómo descubriste tu Talento?</label>
-        <textarea id="historia" name="historia" rows="3" placeholder="Cuéntanos tu historia..."></textarea>
-
-        <label for="escuela">Tu Escuela/Instituto:</label>
-        <input type="text" id="escuela" name="escuela" placeholder="Nombre de tu escuela">
-
-        <label for="foto">Tu Foto o Video (opcional):</label>
-        <input type="file" id="foto" name="foto" accept="image/*,video/*">
-
-        <label for="acudiente">Nombre del Apoderado/Padre:</label>
-        <input type="text" id="acudiente" name="acudiente" required>
-
-        <label for="email">Email del Apoderado:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="telefono">Teléfono del Apoderado:</label>
-        <input type="tel" id="telefono" name="telefono" required>
+        <div class="form-section">
+            <h3>Multimedia (Opcional)</h3>
+            <div class="form-group">
+                <label for="foto">Tu Foto o Video:</label>
+                <input type="file" id="foto" name="foto" accept="image/*,video/*">
+            </div>
+        </div>
 
         <button type="submit">¡Registrar mi Talento!</button>
     </form>
+    <script src="../js/formulario.js"></script>
 </body>
 </html>
