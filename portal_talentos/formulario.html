@@ -7,23 +7,27 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Registra tu Talento</h1>
-    <p>¡Comparte tu talento especial con nosotros!</p>
-    <form action="#" method="post" class="form-container">
+    <div class="form-header">
+        <h1>Registra tu Talento</h1>
+        <p>¡Comparte tu talento especial con nosotros!</p>
+    </div>
+    
+    <!-- Se agregó id="talentoForm" y method="post" -->
+    <form id="talentoForm" action="" method="post" class="form-container">
         <div class="form-section">
             <h3>Información Personal</h3>
             <div class="form-row">
                 <div class="form-group">
                     <label for="nombre">Tu Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                    <input type="text" id="nombre" name="nombre" >
                 </div>
                 <div class="form-group">
                     <label for="edad">Tu Edad:</label>
-                    <input type="number" id="edad" name="edad" min="1" max="18" required>
+                    <input type="number" id="edad" name="edad" min="1" max="18" >
                 </div>
                 <div class="form-group">
                     <label for="genero">Género:</label>
-                    <select id="genero" name="genero" required>
+                    <select id="genero" name="genero" >
                         <option value="">Selecciona</option>
                         <option value="femenino">Femenino</option>
                         <option value="masculino">Masculino</option>
@@ -41,7 +45,7 @@
             <h3>Tu Talento</h3>
             <div class="form-group">
                 <label for="talento">¿Cuál es tu Talento?</label>
-                <select id="talento" name="talento" required>
+                <select id="talento" name="talento" >
                     <option value="">Selecciona tu talento</option>
                     <option value="musica">Música</option>
                     <option value="tecnologia">Tecnología</option>
@@ -53,7 +57,7 @@
             </div>
             <div class="form-group">
                 <label for="descripcion">Cuéntanos sobre tu Talento:</label>
-                <textarea id="descripcion" name="descripcion" rows="4" placeholder="¿Qué haces? ¿Por qué te encanta?" required></textarea>
+                <textarea id="descripcion" name="descripcion" rows="4" placeholder="¿Qué haces? ¿Por qué te encanta?" ></textarea>
             </div>
             <div class="form-group">
                 <label for="historia">¿Cómo descubriste tu Talento?</label>
@@ -74,16 +78,16 @@
             <div class="form-row">
                 <div class="form-group">
                     <label for="acudiente">Nombre del Apoderado/Padre:</label>
-                    <input type="text" id="acudiente" name="acudiente" required>
+                    <input type="text" id="acudiente" name="acudiente" >
                 </div>
                 <div class="form-group">
                     <label for="email">Email del Apoderado:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" >
                 </div>
             </div>
             <div class="form-group">
                 <label for="telefono">Teléfono del Apoderado:</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                <input type="tel" id="telefono" name="telefono" >
             </div>
         </div>
 
@@ -95,7 +99,15 @@
             </div>
         </div>
 
-        <button type="submit">¡Registrar mi Talento!</button>
+        <!-- Contenedor para los mensajes de AJAX -->
+        <div id="mensajeMensajes" style="display: none; padding: 10px; margin-bottom: 15px; border-radius: 5px; text-align: center; font-weight: bold;"></div>
+
+        <!-- Botones de Acción -->
+        <div class="form-actions" style="display: flex; gap: 15px; justify-content: flex-start; margin-top: 20px;">
+            <button type="button" onclick="window.location.href='index.html'">Volver al Inicio</button>
+            <button type="submit">¡Registrar mi Talento!</button>
+        </div>
+
     </form>
     <script src="../js/formulario.js"></script>
 </body>

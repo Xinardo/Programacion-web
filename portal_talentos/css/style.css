@@ -14,6 +14,130 @@ body {
     padding: 20px;
 }
 
+.section-card {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 28px 32px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(78, 52, 118, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.section-card h2 {
+    margin-bottom: 14px;
+    font-size: 2em;
+    color: #3b2161;
+}
+
+.section-card p {
+    margin-bottom: 18px;
+    font-size: 1.05em;
+    color: #4f3d66;
+}
+
+.feature-list,
+.team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.feature-list li,
+.team-list li {
+    background: linear-gradient(135deg, rgba(220, 204, 245, 0.95), rgba(241, 245, 255, 0.95));
+    padding: 18px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(166, 133, 207, 0.35);
+    color: #2f2144;
+}
+
+.feature-list li a {
+    color: #3f2d7d;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.feature-list li a:hover {
+    color: #7e57c2;
+    text-decoration: underline;
+}
+
+.team-card {
+    background: linear-gradient(135deg, rgba(232, 230, 255, 0.95), rgba(243, 241, 255, 0.9));
+}
+
+.talent-cta {
+    background: linear-gradient(135deg, rgba(220, 95, 122, 0.1), rgba(220, 95, 122, 0.05)) !important;
+    border: 2px solid rgba(220, 95, 122, 0.3) !important;
+}
+
+.talent-cta h2 {
+    color: #c94f6d;
+    font-weight: 700;
+}
+
+.talent-cta p {
+    color: #8b4d61;
+    font-size: 1.1em;
+    margin-bottom: 24px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #dc5f7a, #e74c8c);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(220, 95, 122, 0.3);
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #e74c8c, #f05a99);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(220, 95, 122, 0.4);
+    color: #fff;
+    text-decoration: none;
+}
+
+.team-list li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 18px;
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #3b2a5a;
+}
+
+.carousel-placeholder {
+    max-width: 600px;
+    margin: 24px auto;
+}
+
+.carousel-item {
+    max-height: 220px;
+    overflow: hidden;
+    border-radius: 18px;
+    background-color: #f5f5f5;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+}
+}
+
 h1 {
     font-size: 2.8em;
     text-align: center;
@@ -30,9 +154,52 @@ p {
     color: #424242;
 }
 
+.header-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.form-header {
+    max-width: 800px;
+    width: min(100%, 800px);
+    margin: 24px auto;
+    text-align: center;
+    padding: 32px 24px;
+    background: linear-gradient(135deg, rgba(166, 132, 207, 0.1), rgba(156, 102, 207, 0.08));
+    border-radius: 20px;
+    border: 2px solid rgba(166, 132, 207, 0.2);
+}
+
+.form-header h1 {
+    color: #6a1b9a;
+    margin-bottom: 12px;
+    font-size: 2.5em;
+}
+
+.form-header p {
+    color: #7b3fa0;
+    font-size: 1.15em;
+    margin: 0;
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    font-size: 0.85em;
+    color: #a0a0a0;
+    z-index: 100;
+}
+
+.page-footer p {
+    margin: 0;
+    font-style: italic;
+}
+
 /* Formulario escolar */
 .form-container {
     max-width: 800px;
+    width: min(100%, 800px);
     margin: 0 auto;
     padding: 40px;
     background: #ffffff;
@@ -102,6 +269,20 @@ p {
     background: #fafafa;
     transition: all 0.3s ease;
     box-sizing: border-box;
+}
+
+.input-error {
+    border-color: #d32f2f !important;
+    background: #fff0f0;
+}
+
+.error-message {
+    display: block;
+    margin-top: 6px;
+    color: #d32f2f;
+    font-size: 0.95em;
+    line-height: 1.3;
+    min-height: 1.3em;
 }
 
 .form-container input:focus,
@@ -190,6 +371,7 @@ p {
             margin-bottom: 18px;
         }
         .profile-image {
+            display: block;
             margin: 0 auto 18px;
             width: 220px;
             border-radius: 16px;
@@ -249,6 +431,7 @@ p {
             margin-bottom: 18px;
         }
         .profile-image {
+            display: block;
             margin: 0 auto 18px;
             width: 220px;
             border-radius: 16px;
@@ -321,37 +504,130 @@ p {
             color: #21618c;
         }
 
+        .page-shell {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 24px 20px 40px;
+        }
+
         .music-banner {
-            background: linear-gradient(135deg, rgba(241, 196, 15, 0.16), rgba(46, 204, 113, 0.12));
-            border: 1px solid rgba(241, 196, 15, 0.3);
-            padding: 20px;
-            border-radius: 16px;
+            background: linear-gradient(135deg, #f6e6ff 0%, #f4f9ff 100%);
+            border: 1px solid rgba(112, 67, 172, 0.18);
+            padding: 34px 28px;
+            border-radius: 26px;
+            box-shadow: 0 24px 60px rgba(83, 35, 123, 0.08);
+            margin-bottom: 26px;
+            text-align: center;
         }
         .music-banner h1 {
-            color: #b7950b;
+            color: #7d3c98;
+            font-size: 3rem;
+            margin-bottom: 14px;
         }
         .music-banner p {
-            color: #2d3436;
+            color: #4d3b64;
+            font-size: 1.15em;
+            max-width: 760px;
+            margin: 0 auto;
         }
-        .music-list li {
-            background: rgba(46, 204, 113, 0.08);
-            border: 1px solid rgba(46, 204, 113, 0.25);
-            border-radius: 12px;
-            padding: 16px;
-            margin: 0 auto 14px;
-            max-width: 620px;
-            color: #2c3e50;
+
+        .music-content, .tech-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 28px 32px;
+            border: 1px solid rgba(152, 108, 191, 0.16);
+            box-shadow: 0 18px 40px rgba(120, 79, 171, 0.08);
         }
-        .music-list strong {
-            color: #27ae60;
+
+        .section-title {
+            margin-bottom: 22px;
+            text-align: center;
         }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #34225b;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #5f4a7a;
+            font-size: 1rem;
+        }
+
+        .music-list, .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            justify-items: center;
+        }
+
+        .music-list li, .tech-list li {
+            display: grid;
+            gap: 16px;
+            width: 100%;
+            max-width: 450px;
+            background: linear-gradient(135deg, rgba(243, 236, 255, 0.94), rgba(239, 247, 255, 0.98));
+            border: 1px solid rgba(135, 92, 177, 0.18);
+            border-radius: 20px;
+            padding: 24px 26px;
+            color: #3d2e5a;
+            box-shadow: 0 16px 30px rgba(101, 73, 155, 0.08);
+            min-height: 170px;
+            align-items: center;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .music-list li div, .tech-list li div {
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .music-list strong, .tech-list strong {
+            color: #5f32a3;
+            font-size: 1.08rem;
+        }
+
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 240px;
+            padding: 14px 22px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #7b58c8, #aa70f2);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .button-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 35px rgba(123, 88, 200, 0.18);
+        }
+
         .back-link {
             text-align: center;
-            margin-top: 18px;
+            margin-top: 26px;
         }
         .back-link a {
-            color: #27ae60;
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: rgba(92, 64, 155, 0.12);
+            color: #4d2d8f;
+            border: 1px solid rgba(92, 64, 155, 0.22);
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
         .back-link a:hover {
-            color: #1e8449;
+            background: rgba(92, 64, 155, 0.22);
+            color: #2b1a5e;
         }

@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Espera a que cargue la página antes de ejecutar el script
     const form = document.querySelector('.form-container');
+    if (!form) {
+        return;
+    }
+
     const nombreInput = document.getElementById('nombre');
     const edadInput = document.getElementById('edad');
     const generoSelect = document.getElementById('genero');
@@ -13,15 +18,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
     form.noValidate = true;
 
+    // Buscar o crear el span donde se mostrará el mensaje de error
+    function getErrorMessageElement(input) {
+        let messageElement = input.nextElementSibling;
+        if (!messageElement || !messageElement.classList.contains('error-message')) {
+            messageElement = document.createElement('span');
+            messageElement.className = 'error-message';
+            input.insertAdjacentElement('afterend', messageElement);
+        }
+        return messageElement;
+    }
+
+    // Señalar un campo incorrecto con estilo y texto de ayuda
     function showFieldError(input, message) {
-        input.setCustomValidity(message);
-        input.reportValidity();
+        input.classList.add('input-error');
+        const errorElement = getErrorMessageElement(input);
+        errorElement.textContent = message;
     }
 
+    // Limpiar el error visual de un campo cuando se corrige
     function clearFieldError(input) {
-        input.setCustomValidity('');
+        input.classList.remove('input-error');
+        const next = input.nextElementSibling;
+        if (next && next.classList.contains('error-message')) {
+            next.textContent = '';
+        }
     }
 
+    // Borrar todos los errores antes de volver a validar
+    function clearAllErrors() {
+        [nombreInput, edadInput, generoSelect, generoOtroInput, talentoSelect, escuelaInput, acudienteInput, emailInput, telefonoInput].forEach(clearFieldError);
+    }
+
+    // Reglas de validación para cada campo del formulario
     function validarNombre() {
         const nombre = nombreInput.value.trim();
         return nombre.length >= 2;
@@ -73,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clearFieldError(nombreInput);
     });
 
+    // Limpiar el error cuando el usuario escribe nuevamente
     edadInput.addEventListener('input', function() {
         clearFieldError(edadInput);
     });
@@ -88,6 +118,11 @@ document.addEventListener('DOMContentLoaded', function() {
             generoOtroInput.value = '';
             generoOtroInput.removeAttribute('required');
         }
+    });
+
+    // Mostrar campo adicional solo si se elige género 'otro'
+    generoOtroInput.addEventListener('input', function() {
+        clearFieldError(generoOtroInput);
     });
 
     generoOtroInput.addEventListener('input', function() {
@@ -114,11 +149,13 @@ document.addEventListener('DOMContentLoaded', function() {
         clearFieldError(telefonoInput);
     });
 
+    // Validación final al enviar el formulario
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+        clearAllErrors();
 
         if (!validarNombre()) {
-            showFieldError(nombreInput, 'Debe ingresar datos para continuar');
+            showFieldError(nombreInput, 'Rellene sus datos');
             nombreInput.focus();
             return;
         }
@@ -176,4 +213,68 @@ document.addEventListener('DOMContentLoaded', function() {
         // Si quieres enviar el formulario a un servidor, descomenta la siguiente línea:
         // form.submit();
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionamos el formulario y el div de mensajes usando sus IDs
+    const form = document.getElementById('talentoForm');
+    const cajaMensaje = document.getElementById('mensajeMensajes');
+
+    // Escuchamos el evento 'submit' (cuando se hace clic en el botón Registrar)
+    form.addEventListener('submit', function(event) {
+        // 1. FUNDAMENTAL: Evitamos que la página se recargue
+        event.preventDefault();
+
+        // 2. Mostramos un mensaje de estado "Enviando..."
+        cajaMensaje.style.display = 'block';
+        cajaMensaje.style.backgroundColor = '#e2e3e5'; // Gris claro
+        cajaMensaje.style.color = '#383d41';
+        cajaMensaje.innerText = 'Procesando tu información...';
+
+        // 3. Recopilamos todos los datos (incluyendo la foto/video) automáticamente
+        const formData = new FormData(form);
+
+        // 4. Usamos Fetch API para hacer la petición AJAX
+        // Nota: Estoy usando una URL de prueba que simula un servidor real.
+        // Cuando tengas tu backend (por ejemplo en Django o Node), cambiarás esta URL.
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: formData 
+        })
+        .then(respuesta => {
+            // Verificamos si la respuesta del servidor fue exitosa (código 200-299)
+            if (respuesta.ok) {
+                return respuesta.json();
+            }
+            throw new Error('Error en la comunicación con el servidor');
+        })
+        .then(datosRecibidos => {
+            // 5. ¡Éxito! El servidor respondió bien
+            console.log('Datos procesados por el servidor:', datosRecibidos);
+            
+            // Actualizamos la interfaz para mostrar el éxito
+            cajaMensaje.style.backgroundColor = '#d4edda'; // Verde claro
+            cajaMensaje.style.color = '#155724';
+            cajaMensaje.innerText = '¡Éxito! Tu talento ha sido registrado correctamente.';
+            
+            // Opcional: Limpiar los campos del formulario tras el envío
+            form.reset();
+
+            // Ocultar el mensaje después de unos segundos (opcional)
+            setTimeout(() => {
+                cajaMensaje.style.display = 'none';
+            }, 5000);
+        })
+        .catch(error => {
+            // 6. Manejo de errores (por si falla el internet o el servidor)
+            console.error('Hubo un fallo:', error);
+            
+            cajaMensaje.style.backgroundColor = '#f8d7da'; // Rojo claro
+            cajaMensaje.style.color = '#721c24';
+            cajaMensaje.innerText = 'Ups... Hubo un problema al enviar los datos. Inténtalo de nuevo.';
+        });
+    });
+
+    // (Opcional) Aquí puedes mantener cualquier otro código que ya tuvieras, 
+    // como la lógica para mostrar/ocultar el input de "Otro género".
 });
