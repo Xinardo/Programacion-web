@@ -210,19 +210,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         alert('Formulario válido. Puede continuar.');
 
-        // Si quieres enviar el formulario a un servidor, descomenta la siguiente línea:
-        // form.submit();
+       
     });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleccionamos el formulario y el div de mensajes usando sus IDs
+  
     const form = document.getElementById('talentoForm');
     const cajaMensaje = document.getElementById('mensajeMensajes');
 
-    // Escuchamos el evento 'submit' (cuando se hace clic en el botón Registrar)
+    
     form.addEventListener('submit', function(event) {
-        // 1. FUNDAMENTAL: Evitamos que la página se recargue
+      
         event.preventDefault();
 
         // 2. Mostramos un mensaje de estado "Enviando..."
@@ -235,14 +234,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(form);
 
         // 4. Usamos Fetch API para hacer la petición AJAX
-        // Nota: Estoy usando una URL de prueba que simula un servidor real.
-        // Cuando tengas tu backend (por ejemplo en Django o Node), cambiarás esta URL.
+    
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             body: formData 
         })
         .then(respuesta => {
-            // Verificamos si la respuesta del servidor fue exitosa (código 200-299)
+            
             if (respuesta.ok) {
                 return respuesta.json();
             }
@@ -275,6 +273,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // (Opcional) Aquí puedes mantener cualquier otro código que ya tuvieras, 
-    // como la lógica para mostrar/ocultar el input de "Otro género".
+
 });
