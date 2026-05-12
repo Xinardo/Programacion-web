@@ -275,3 +275,101 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Capturamos los elementos del DOM
+    const btnBuscar = document.getElementById('btn_buscar_pokemon');
+    const btnAzar = document.getElementById('btn_azar_pokemon'); // Capturamos el nuevo botón
+    const inputSearch = document.getElementById('pokemon_search');
+    const resultDiv = document.getElementById('pokemon_result');
+    const pokemonNameEl = document.getElementById('pokemon_name');
+    const pokemonSpriteEl = document.getElementById('pokemon_sprite');
+    const inputOculto = document.getElementById('pokemon_seleccionado');
+
+    // FUNCIÓN REUTILIZABLE PARA BUSCAR EN LA API
+    const buscarPokemon = async (query) => {
+        try {
+            // Hacemos la petición a la PokéAPI usando el query (puede ser texto o número)
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
+            
+            if (!response.ok) {
+                throw new Error('Pokémon no encontrado');
+            }
+
+            const data = await response.json();
+
+            // Mostramos los datos en el HTML
+            pokemonNameEl.textContent = data.name;
+            
+            // Usamos el sprite frontal (y si no tiene, intentamos buscar el artwork oficial)
+            pokemonSpriteEl.src = data.sprites.front_default || data.sprites.other['official-artwork'].front_default; 
+            
+            // Guardamos el nombre en el input oculto
+            inputOculto.value = data.name;
+
+            // Hacemos visible el contenedor cambiándolo a bloque (display: block hace que el centrado del CSS anterior funcione correctamente al anular el none)
+            resultDiv.style.display = 'block';
+
+            // Reiniciamos la animación mágica (si la tenías implementada vía JS)
+            resultDiv.classList.remove('animacion-pop');
+            void resultDiv.offsetWidth; 
+            resultDiv.classList.add('animacion-pop');
+
+        } catch (error) {
+            console.error('Error con la PokéAPI:', error);
+            alert('No se pudo encontrar ese Pokémon. Intenta con otro nombre.');
+            resultDiv.style.display = 'none';
+            inputOculto.value = '';
+        }
+    };
+
+    // Evento click para el botón BUSCAR NORMAL
+    btnBuscar.addEventListener('click', () => {
+        const busqueda = inputSearch.value.trim().toLowerCase();
+        if (!busqueda) {
+            alert('Por favor, ingresa el nombre o número de un Pokémon.');
+            return;
+        }
+        buscarPokemon(busqueda);
+    });
+
+    // Evento click para el botón AL AZAR
+    if(btnAzar) {
+        btnAzar.addEventListener('click', () => {
+            // La PokéAPI tiene actualmente hasta el ID 1025 aproximadamente
+            // Generamos un número entero aleatorio entre 1 y 1025
+            const idAleatorio = Math.floor(Math.random() * 1025) + 1;
+            
+            // Opcional: Rellenamos el input visualmente para que sepas qué ID salió
+            inputSearch.value = idAleatorio;
+            
+            // Llamamos a la API con ese número aleatorio
+            buscarPokemon(idAleatorio);
+        });
+    }
+
+    // Permitir buscar presionando la tecla "Enter" dentro del input
+    inputSearch.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); 
+            btnBuscar.click();
+        }
+    });
+
+    // -------------------------------------------------------------------------
+    // Lógica original para mostrar/ocultar el campo "Especifica tu género"
+    // -------------------------------------------------------------------------
+    const selectGenero = document.getElementById('genero');
+    const generoOtroGroup = document.getElementById('generoOtroGroup');
+
+    if (selectGenero && generoOtroGroup) {
+        selectGenero.addEventListener('change', (e) => {
+            if (e.target.value === 'otro') {
+                generoOtroGroup.style.display = 'block';
+            } else {
+                generoOtroGroup.style.display = 'none';
+            }
+        });
+    }
+
+});
